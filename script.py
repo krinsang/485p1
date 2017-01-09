@@ -6,7 +6,7 @@ db= MySQLdb.connect("localhost","root","password","p1")
 #setting up the cursor
 cursor = db.cursor()
 
-for filename in os.listdir("C:\Users\wilki\Google Drive\UofM 2017 Winter\EECS 485\pa1_images\images"):
+for filename in os.listdir(""):
 	indx = filename.find("_",0,end = len(filename))
 	directory = filename[0:indx-1]
 	try:
