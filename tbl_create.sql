@@ -17,4 +17,10 @@ CREATE TABLE Album (
    albumid int,
    picid varchar(40),
    caption NOT_NULL varchar(255));
+
+ALTER TABLE Contain AUTO_INCREMENT = 0
    
+CREATE TABLE Photo (
+  picid varchar(40),
+  format varchar(3),
+  date TIMESTAMP);
