@@ -3,24 +3,32 @@ CREATE TABLE User (
   first_name varchar(20),
   last_name varchar(20),
   password varchar(20),
-  email TEXT(40));
+  email TEXT(40),
+  primary key (username)
+  );
 
 CREATE TABLE Album (
   albumid int AUTO_INCREMENT,
   title varchar(50),
-  created TIMESTAMP,
-  lastupdated TIMESTAMP,
-  username varchar(20));
+  created TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  lastupdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  username varchar(20),
+  primary key (albumid)
+  );
  
  CREATE TABLE Contain (
    sequencenum int AUTO_INCREMENT,
    albumid int,
    picid varchar(40),
-   caption NOT_NULL varchar(255));
+   caption varchar(255) NOT NULL,
+   primary key (sequencenum)
+   );
 
-ALTER TABLE Contain AUTO_INCREMENT = 0
+ALTER TABLE Contain AUTO_INCREMENT = 0;
    
 CREATE TABLE Photo (
   picid varchar(40),
   format varchar(3),
-  date TIMESTAMP);
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  primary key (picid)
+  );
