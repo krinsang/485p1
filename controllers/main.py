@@ -10,7 +10,6 @@ def main_route():
 
 @main.route('/hello')
 def main_hello():
-    return "Hello everyone!\n"
     db = connect_to_database()
     cur = db.cursor()
     cur.execute('SELECT id, name FROM test_tbl')
