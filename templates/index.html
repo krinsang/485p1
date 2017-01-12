@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Website </title>
+		<title> Project 1 Website </title>
 
 		<meta charset = "UTF-8">
 		<meta name="description" content="Photo album editing">
@@ -13,6 +13,7 @@
 		<h1> Photo Album </h1>
 		<p> Welcome to our website! </p>
 
+		<p> TEST FORM </p>
 		<! Use GET to not make changes, POST for editing/adding content>
 		<form method = "post">
 			First name:<br>
@@ -21,6 +22,15 @@
 			<input type ="text" name = "lastname"><br>
 			<input type="submit" value = "submit"><br>
 		</form>
+
+		<p> TEST: LIST OF ALL USERS </p>
+
+		<table>
+			{% for result in lst %}
+			<tr><td> {{ result }} </td></tr>
+			{% endfor %}
+		</table>
+
 	</body>
 
 	<footer>
