@@ -13,7 +13,8 @@ CREATE TABLE Album (
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   lastupdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   username varchar(20),
-  primary key (albumid)
+  primary key (albumid),
+  FOREIGN KEY (username) REFERENCES User(username)
   );
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +24,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
    albumid int,
    picid varchar(40),
    caption varchar(255) NOT NULL,
-   primary key (sequencenum)
+   primary key (sequencenum),
+   FOREIGN KEY (albumid) REFERENCES Album(albumid),
+   FOREIGN KEY (picid) REFERENCES Photo(picid)
    );
 
 ALTER TABLE Contain AUTO_INCREMENT = 0;
