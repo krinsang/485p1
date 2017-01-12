@@ -12,7 +12,7 @@ def main_route():
 def main_hello():
     db = connect_to_database()
     cur = db.cursor()
-    cur.execute('SELECT id, name FROM test_tbl')
+    cur.execute('SELECT username FROM User')
     results = cur.fetchall()
     print(results)
     print_str = "<table>"
