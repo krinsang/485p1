@@ -14,26 +14,23 @@ CREATE TABLE Album (
   lastupdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   username varchar(20),
   primary key (albumid),
-  FOREIGN KEY (username) REFERENCES User(username)
+  CONSTRAINT FOREIGN KEY (username) REFERENCES User(username)
   );
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
  
- CREATE TABLE Contain (
-   sequencenum int AUTO_INCREMENT,
-   albumid int,
-   picid varchar(40),
-   caption varchar(255) NOT NULL,
-   primary key (sequencenum),
-   FOREIGN KEY (albumid) REFERENCES Album(albumid),
-   FOREIGN KEY (picid) REFERENCES Photo(picid)
-   );
 
-ALTER TABLE Contain AUTO_INCREMENT = 0;
-   
-CREATE TABLE Photo (
+ CREATE TABLE Photo (
   picid varchar(40),
   format varchar(3),
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   primary key (picid)
+  );
+
+ CREATE TABLE Contain (
+  sequencenum int,
+  albumid int,
+  picid varchar(40),
+  caption varchar(255) NOT NULL,
+  primary key (sequencenum),
+  CONSTRAINT FOREIGN KEY (albumid) REFERENCES Album(albumid),
+  CONSTRAINT FOREIGN KEY (picid) REFERENCES Photo(picid)
   );
